@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Student{% endblock title %}
+{% block content %}
+<h2>Student detail</h2>
+    {% comment %} <table class="table table-bordered table-striped">
+        <tr>
+            <th>NAME</th>
+            <th>COURSE CODE</th>
+        </tr>
+        {% for course in courses  %}
+        <tr>
+            <td>{{ course.name }}</td>
+            <td>{{ course.course_code }}</td>
+        </tr>
+        {% endfor %}
+    </table> {% endcomment %}
+{% endblock content %}

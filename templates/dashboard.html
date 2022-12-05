@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block content %}
+<h2>Welcome, {{ request.user.username|title }}!</h2>
+<section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center">
+            {% if request.user.is_student %}
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <a href="{% url 'courses-new' %}">
+                <div class="count-box">
+                <i class="bi bi-person-lines-fill"></i>
+                <h2>Register Course</h2>
+                </div>
+            </a>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <a href="{% url 'students' %}">
+                <div class="count-box">
+                    <i class="bi bi-people"></i>
+                    <h2>Check Result</h2>
+                </div>
+            </a>
+          </div>
+          {% else %}
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <a href="{% url 'students' %}">
+                <div class="count-box">
+                    <i class="bi bi-people"></i>
+                    <h2>Students</h2>
+                </div>
+            </a>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <a href="{% url 'courses' %}">
+                  <div class="count-box">
+                      <i class="bi bi-people"></i>
+                      <h2>Courses</h2>
+                  </div>
+                </a>
+          </div>
+          
+          {% endif %}
+        </div>
+
+      </div>
+    </section>
+{% endblock content %}
